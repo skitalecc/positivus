@@ -1,0 +1,35 @@
+@use'../mixins' as m;
+@use'../media' as me;
+
+
+.cross-button {
+    @include m.reset-button;
+    @include m.square(48px);
+  
+    position: relative;
+    border-radius: var(--border-radius-small);
+  
+    @include me.hover {
+      background-color: var(--color-accent);
+    }
+  
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 7px;
+      width: 70%;
+      height: 2px;
+      background-color: var(--color-dark);
+      border-radius: 5px;
+    }
+  
+    &::before {
+      rotate: 45deg;
+    }
+  
+    &::after {
+      rotate: -45deg;
+    }
+  }

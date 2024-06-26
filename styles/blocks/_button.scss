@@ -1,0 +1,39 @@
+@use'../mixins' as m;
+@use'../media' as me;
+@use'../variables' as v;
+
+
+
+.button {
+    @include m.flex-center(true);
+
+    height: var(--button-height);
+    padding-inline: 35px;
+
+    font-size: 20px;
+    color: var(--color-light);
+    background-color: var(--color-dark);
+    border: var(--border);
+    border-radius: v.$border-radius;
+
+    @include me.hover{ 
+        background-color: var(--color-accent);
+        color: var(--color-dark);
+        cursor: pointer;
+    }
+
+    &--transparent {
+        color: var(--color-dark);
+        background-color: transparent;
+    }
+
+    &--accent {
+        background-color: var(--color-accent);
+        color: var(--color-dark);
+
+        @include me.hover {
+            background-color: var(--color-dark);
+            color: var(--color-accent);
+        }
+    }
+}

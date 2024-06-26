@@ -1,0 +1,116 @@
+@use '../mixins' as m;
+@use '../media' as me;
+
+
+.service-card {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+    min-height: 310px;
+    padding: 50px;
+    background-color: var(--color-grey);
+    border: var(--border);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow);
+
+    
+
+    @include me.mobile {
+        display: grid;
+        grid-template-columns: auto auto;
+        row-gap: 27px;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include me.mobile {
+            display: contents;
+        }
+    }
+
+    &__image {
+        align-self: center;
+
+        @include me.desktop {
+            max-width: 40%;
+            height: auto;
+        }
+
+        @include me.mobile {
+            max-width: 165px;
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        @include me.mobile {
+            grid-column: -1 / 1;
+        }
+    }
+
+    &__link {
+
+
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+        font-size: 20px;
+
+        @include me.mobile {
+            align-items: end;
+        }
+
+        @include me.hover {
+            opacity: .7;
+        }
+
+        &--light {
+            color: var(--color-light)
+        }
+
+        &-icon-wrapper {
+            @include m.flex-center;
+            @include m.square(41px);
+
+            background-color: currentColor;
+            border-radius: 50%;
+
+            svg {
+                color: var(--color-accent);
+
+            }
+        }
+
+        &-label {
+            @include me.mobile {
+                @include m.visually-hidden;
+            }
+        }
+    }
+
+    &--accent-bg {
+        background-color: var(--color-accent);
+    }
+
+    &--dark-bg {
+        background-color: var(--color-dark);
+
+        &__link-label {
+            color: var(--color-white);
+        }
+
+        svg {
+            color: var(--color-dark);
+        }
+    }
+
+    @include me.tablet {
+        max-width: 97%;
+    }
+}

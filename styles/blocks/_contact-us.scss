@@ -1,0 +1,72 @@
+@use'../media' as me;
+@use '../mixins' as m;
+
+.contact-us {
+    position: relative;
+
+    overflow: hidden;
+
+    @include me.mobile-above {
+        padding: 60px 100px 80px;
+        background-color: var(--color-grey);
+        border-radius: var(--border-radius-large);
+    }
+
+    &::after {
+        --contactUsPad: 62px;
+
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        translate: -50% -50%;
+        height: calc(100% - var(--contactUsPad) * 2);
+        aspect-ratio: 1;
+        background: url('/images/star.svg') center/contain no-repeat;
+
+        @include me.tablet {
+            display: none;
+        }
+    }
+
+    &__request-types,
+    &__body {
+        @include me.mobile {
+            background-color: var(--color-grey);
+        }
+    }
+
+    &__request-types {
+        @include me.mobile {
+            padding: 40px 52px 36px;
+            border-radius: 45px 45px 0 0;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+
+        @include me.mobile-above {
+            row-gap: 40px;
+        }
+
+        @include me.tablet-above {
+            max-width: 556px;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        row-gap: 25px;
+
+        @include me.mobile {
+            row-gap: 20px;
+            padding: 10px 30px 50px;
+            border-radius: var(border-radius-large) var(border-radius-large) 0 0;
+            margin-bottom: 30px;
+        }
+    }
+}

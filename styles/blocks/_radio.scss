@@ -1,0 +1,40 @@
+@use'../media' as me;
+@use '../mixins' as m;
+
+.radio {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    transition-duration: 0.6;
+    
+    @include me.hover {
+       opacity: .6;
+    }
+
+    &__input {
+        &:not(:checked) + .radio__emulator::before {
+            opacity: 0;
+        }
+    }
+
+    &__emulator {
+        @include m.flex-center;
+        @include m.square(28px);
+
+        position: relative;
+        background-color: var(--color-light);
+        border: var(--border);
+        border-radius: 50%;
+
+        &::before {
+            @include m.abs-center;
+            @include m.square(14px);
+
+            content: '';
+            position: absolute;
+            background-color: var(--color-accent);
+            border-radius: inherit;
+            transition-duration: var(--transition-duration);
+        }
+    }
+}

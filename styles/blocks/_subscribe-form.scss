@@ -1,0 +1,21 @@
+@use '../mixins' as m;
+@use '../media' as me;
+
+.subscribe-form {
+    display: flex;
+    column-gap: 20px;
+    padding: 58px 40px;
+    background-color: var(--color-dark-alt);
+    border-radius: var(--border-radius-large);
+    width: 100%;
+    max-width: 450px;
+
+    @include me.desktop {
+        display: flex;
+        flex-direction: column;
+        row-gap: 22px;
+        padding: 30px;
+    }
+
+    
+}

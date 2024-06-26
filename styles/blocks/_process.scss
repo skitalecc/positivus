@@ -1,0 +1,124 @@
+@use '../mixins' as m;
+@use '../media' as me;
+
+.process {
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        counter-reset: custom-counter;
+        list-style: none;
+
+        @include me.mobile {
+            row-gap: 20px;
+        }
+    }
+
+    &__item {
+        counter-increment: custom-counter;
+        
+    }
+
+    &__accordion {
+        padding: 40px 60px;
+
+        background-color: var(--color-grey);
+        border: var(--border-radius-large);
+        box-shadow: var(--shadow);
+        border-radius: var(--border-radius-large);
+
+        @include me.hover {
+            background-color: var(--color-accent);
+            transition-duration: var(--transition-duration);
+        }
+
+        @include me.mobile {
+            padding: 30px;
+        }
+
+        &[open] {
+            background-color: var(--color-accent);
+
+            .process__accordion-indicator::after {
+                rotate: 0deg;
+            }
+        }
+
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 50px;
+            cursor: pointer;
+            user-select: none;
+
+            @include me.mobile {
+                column-gap: 28px;
+            }
+        }
+
+        &-title {
+            display: flex;
+            align-items: center;
+            column-gap: 25px;
+            @include m.fluid-text(30, 18);
+
+            @include me.mobile {
+                column-gap: 33px;
+            }
+
+            &::before {
+                content: '0' counter(custom-counter);
+                font-size: 2em;
+
+                @include me.mobile {
+                    font-size: 30px;
+                }
+            }
+
+        }
+
+        &-indicator {
+            @include m.flex-center;
+            @include m.square(48px);
+
+            flex-shrink: 0;
+            position: relative;
+            background-color: var(--color-grey);
+            border: 1px solid var(--color-dark);
+            border-radius: 50%;
+
+            &::before,
+            &::after {
+                @include m.abs-center;
+                
+                content: '';
+                width:18px;
+                height: 4px;
+                background-color: var(--color-dark);
+
+                @include me.mobile { 
+                    height: 2px;
+                    width:15px;
+                }
+            }
+
+            &::after {
+                rotate: 90deg;
+                transition-duration: var(--transition-duration);
+            }
+
+            @include me.mobile {
+                width: 30px;
+            }
+            
+        }
+
+        &-body {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--color-dark);
+        }
+    }
+}

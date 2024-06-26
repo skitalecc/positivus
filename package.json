@@ -1,0 +1,14 @@
+{
+  "name": "positivus",
+  "version": "1.0.0",
+  "description": "land exp",
+  "main": "index.html",
+  "scripts": {
+    "sass:watch": "sass --style=expanded --watch styles:dist"
+  },
+  "author": "skitalecc",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.77.6"
+  }
+}

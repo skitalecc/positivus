@@ -1,0 +1,26 @@
+@use '../mixins' as m;
+@use '../media' as me;
+
+
+.pagination {
+
+    &__list {
+        display: flex;
+    }
+
+    &__button {
+        @include m.reset-button;
+        @include m.flex-center;
+        @include m.square(24px);
+
+        color: var(--color-light);
+
+        @include me.hover {
+            color: var(--color-accent);
+        }
+
+        &.is-current {
+            color: var(--color-accent);
+        }
+    }
+}
