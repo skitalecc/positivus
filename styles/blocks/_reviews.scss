@@ -28,7 +28,12 @@
             display: flex;
             column-gap: 50px;
             scroll-snap-type: x mandatory;
+            scrollbar-width: none;
             overflow-x: scroll;
+            scrollbar-width:thin;
+            /* "auto" или "thin" */
+            scrollbar-color: var(--color-accent) #343647;
+            /* цвет бегунка и зоны отслеживания */
 
             @include me.tablet-above {
                 margin-left: calc(var(--reviewsSliderSlideWidth) / 2 * -1);

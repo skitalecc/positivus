@@ -216,11 +216,6 @@ svg * {
     scroll-behavior: auto !important;
   }
 }
-body {
-  scrollbar-width: auto; /* "auto" или "thin" */
-  scrollbar-color: var(--color-accent) #343647; /* цвет бегунка и зоны отслеживания */
-}
-
 @font-face {
   font-family: "Space Grotesk";
   src: url(../fonts/SpaceGrotesk-Regular.woff2) format("woff2");
@@ -1347,7 +1342,12 @@ h4,
   display: flex;
   column-gap: 50px;
   scroll-snap-type: x mandatory;
+  scrollbar-width: none;
   overflow-x: scroll;
+  scrollbar-width: thin;
+  /* "auto" или "thin" */
+  scrollbar-color: var(--color-accent) #343647;
+  /* цвет бегунка и зоны отслеживания */
 }
 @media (min-width: 1024px) {
   .reviews__slider-list {
