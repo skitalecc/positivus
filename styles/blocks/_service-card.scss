@@ -8,12 +8,11 @@
     column-gap: 30px;
     min-height: 310px;
     padding: 50px;
-    background-color: var(--color-grey);
+    background-color: var(--color-gray);
     border: var(--border);
     border-radius: var(--border-radius-large);
     box-shadow: var(--shadow);
 
-    
 
     @include me.mobile {
         display: grid;
@@ -21,10 +20,19 @@
         row-gap: 27px;
     }
 
+    &--accent-bg {
+        background-color: var(--color-accent);
+    }
+
+    &--dark-bg {
+        background-color: var(--color-dark);
+    }
+
     &__body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        row-gap: 30px;
 
         @include me.mobile {
             display: contents;
@@ -35,7 +43,7 @@
         align-self: center;
 
         @include me.desktop {
-            max-width: 40%;
+            max-width: 50%;
             height: auto;
         }
 
@@ -55,23 +63,25 @@
     }
 
     &__link {
+        --serviceCardLinkIconColor: var(--color-accent);
 
-
-        display: flex;
+        display: inline-flex;
         align-items: center;
         column-gap: 15px;
         font-size: 20px;
 
-        @include me.mobile {
-            align-items: end;
+        @include me.hover {
+            opacity: 0.7;
         }
 
-        @include me.hover {
-            opacity: .7;
+        @include me.mobile {
+            align-self: end;
         }
 
         &--light {
-            color: var(--color-light)
+            --serviceCardLinkIconColor: var(--color-dark);
+
+            color: var(--color-light);
         }
 
         &-icon-wrapper {
@@ -82,8 +92,7 @@
             border-radius: 50%;
 
             svg {
-                color: var(--color-accent);
-
+                color: var(--serviceCardLinkIconColor);
             }
         }
 
@@ -92,25 +101,5 @@
                 @include m.visually-hidden;
             }
         }
-    }
-
-    &--accent-bg {
-        background-color: var(--color-accent);
-    }
-
-    &--dark-bg {
-        background-color: var(--color-dark);
-
-        &__link-label {
-            color: var(--color-white);
-        }
-
-        svg {
-            color: var(--color-dark);
-        }
-    }
-
-    @include me.tablet {
-        max-width: 97%;
     }
 }

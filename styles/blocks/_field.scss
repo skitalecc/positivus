@@ -63,10 +63,9 @@
 
         &--textarea {
             height: 190px;
-            padding: 18px;
+            padding-block: 18px;
             resize: none;
-            border-radius: 14px;
-            width: 556px;
+
             @include me.mobile {
                 height: 132px;
             }

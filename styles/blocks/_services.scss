@@ -1,20 +1,13 @@
 @use '../media' as me;
 
 .services {
-    margin: 0 auto;
-    align-items: center;
-
     &__list {
-        &:not(:last-child) {
-            margin: 0 0 100px 0;
-
-            @include me.mobile {
-                margin: 0 0 70px 0;
-
-            }
+      &:not(:last-child) {
+        margin-bottom: 100px;
+  
+        @include me.mobile {
+          margin-bottom: 70px;
         }
+      }
     }
-
-
-
-}
+  }
